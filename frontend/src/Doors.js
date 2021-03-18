@@ -6,7 +6,8 @@ class Doors extends React.Component {
     constructor() {
         super ();
         this.state = {
-            availabelData: ""
+            availabelData: "",
+          random: 0
         }
     }
 
@@ -35,7 +36,7 @@ class Doors extends React.Component {
             .then (data => {
                 response.push ({
                     name: data["doorName"],
-                    ask: data["askQuestion"]
+                    ask: data["resultSentence"]
                 });
                 console.log (data)
             }).then (data => this.setState (prevState => {

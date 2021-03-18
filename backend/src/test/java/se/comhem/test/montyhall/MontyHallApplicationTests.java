@@ -44,7 +44,7 @@ public class MontyHallApplicationTests {
     @Test
     public void contextLoadsBill() {
         Integer number = 3;
-        
+
         ResponseEntity<ResponseJson> responseEntity = controller.CalculateResponse(number);
 
         Assert.assertEquals(200, responseEntity.getStatusCodeValue());

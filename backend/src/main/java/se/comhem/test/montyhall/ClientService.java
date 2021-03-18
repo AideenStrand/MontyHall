@@ -3,6 +3,8 @@ package se.comhem.test.montyhall;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
+
 @Slf4j
 @Service
 
@@ -11,6 +13,7 @@ public class ClientService {
     private final static Integer Door_1 = 1;
     private final static Integer Door_2 = 2;
     private final static Integer Door_3 = 3;
+
 
     public ResponseJson Calculate(Integer id) {
 
