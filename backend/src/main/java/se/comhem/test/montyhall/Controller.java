@@ -18,11 +18,11 @@ public class Controller {
 
     @GetMapping(value = "/api/client/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<ResponseJson> getAvailabelCustomers(
+    public ResponseEntity<ResponseJson> CalculateResponse(
              @PathVariable(name = "id") Integer id
     ) {
         try {
-            return new ResponseEntity<>(clientService.getCustomers(id), HttpStatus.OK);
+            return new ResponseEntity<>(clientService.Calculate(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

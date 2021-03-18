@@ -2,7 +2,7 @@ import React from 'react';
 import monty from './monty.jpg';
 import './App.css';
 import BackendHealth from './BackendHealth/BackendHealth';
-import Test from "./Test";
+import Doors from "./Doors";
 
 function App() {
     return (
@@ -17,7 +17,7 @@ function App() {
         </div>
             <div>
 
-                <Test/>
+                <Doors/>
             </div>
         </div>
     );

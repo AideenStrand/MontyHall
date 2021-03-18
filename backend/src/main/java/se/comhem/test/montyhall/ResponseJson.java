@@ -6,6 +6,7 @@ import lombok.Data;
 public class ResponseJson {
 
     private String doorName;
+    private String resultSentence;
 
     public void setDoorName(String doorName) {
         this.doorName = doorName;
@@ -13,6 +14,14 @@ public class ResponseJson {
 
     public String getDoorName() {
         return doorName;
+    }
+
+    public String getResultSentence() {
+        return resultSentence;
+    }
+
+    public void setResultSentence(String resultSentence) {
+        this.resultSentence = resultSentence;
     }
 }
 
