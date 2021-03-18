@@ -19,6 +19,8 @@ export default function useBackendHealth() {
             });
     }
 
+
+
     useEffect(() => {
         setBackendHealth("UNKNOWN")
         const interval = setInterval(getHealth, 3000);
