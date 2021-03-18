@@ -7,10 +7,7 @@ import Test from "./Test";
 function App() {
     return (
         <div>
-        <div>
 
-      <Test/>
-        </div>
         <div className="App">
             <header className="App-header">
                 <BackendHealth/>
@@ -18,6 +15,10 @@ function App() {
                 <h1 className="App-title">Welcome to the Monty Hall Simulator</h1>
             </header>
         </div>
+            <div>
+
+                <Test/>
+            </div>
         </div>
     );
 }

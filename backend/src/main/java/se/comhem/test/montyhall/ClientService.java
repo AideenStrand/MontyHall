@@ -10,24 +10,24 @@ import java.util.*;
 
 public class ClientService {
 
-    private final static Integer door_1 = 1;// door user chooses
-    private final static Integer door_2 = 2; // door user chooses
-    private final static Integer door_3 = 3;
+    private final static Integer Door_1 = 1;// door user chooses
+    private final static Integer Door_2 = 2; // door user chooses
+    private final static Integer Door_3 = 3;
 
-    public ResponseJson getCustomers() {
+    public ResponseJson getCustomers(Integer id) {
 
         ResponseJson responseJsonList = new ResponseJson();
-        if(door_1!=null){
+        if(Door_1.equals(id)){
 
             responseJsonList.setCompleteName("goat");
         }
 
-        if(door_2!=null){
+        if(Door_2.equals(id)){
 
             responseJsonList.setCompleteName("goat");
         }
 
-        if(door_3!=null){
+        if(Door_3.equals(id)){
 
             responseJsonList.setCompleteName("bill");
         }

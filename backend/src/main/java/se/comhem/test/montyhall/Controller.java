@@ -16,13 +16,13 @@ public class Controller {
     @Autowired
     private ClientService clientService;
 
-    @GetMapping(value = "/api/client")
+    @GetMapping(value = "/api/client/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<ResponseJson> getAvailabelCustomers(
- /*            @PathVariable(name = "available") String available*/
+             @PathVariable(name = "id") Integer id
     ) {
         try {
-            return new ResponseEntity<>(clientService.getCustomers(), HttpStatus.OK);
+            return new ResponseEntity<>(clientService.getCustomers(id), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
