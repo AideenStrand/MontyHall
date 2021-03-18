@@ -7,13 +7,12 @@ class Test extends React.Component {
         super ();
         this.state = {
             availabelData: "",
-            count: 1
+            number: 0
         }
     }
 
-    toggleButtonState = (count) => {
+    door1 = () => {
         var response = []
-
 
         fetch ("/api/client/1", {
             headers: {
@@ -23,7 +22,7 @@ class Test extends React.Component {
         }).then (res => res.json ())
             .then (data => {
                 response.push ({
-                    name: data["completeName"]
+                    name: data["doorName"]
                 });
                 console.log (response)
             }).then (data => this.setState (prevState => {
@@ -34,7 +33,7 @@ class Test extends React.Component {
         ))
     }
 
-    toggleButtonState1 = (count) => {
+    door2 = () => {
         var response = []
 
         fetch ("/api/client/2", {
@@ -45,7 +44,7 @@ class Test extends React.Component {
         }).then (res => res.json ())
             .then (data => {
                 response.push ({
-                    name: data["completeName"]
+                    name: data["doorName"]
                 });
                 console.log (response)
             }).then (data => this.setState (prevState => {
@@ -56,76 +55,45 @@ class Test extends React.Component {
         ))
     }
 
-    toggleButtonState2 = (count) => {
+    door3 = () => {
+
         var response = []
-
-        this.state.count = count
-
-        fetch ("/api/client/3", {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        }).then (res => res.json ())
-            .then (data => {
-                response.push ({
-                    name: data["completeName"]
-                });
-                console.log (response)
-            }).then (data => this.setState (prevState => {
-                return {
-                    availabelData: response[0]
-                }
-            }
-        ))
+         fetch ("/api/client/3", {
+             headers: {
+                 'Content-Type': 'application/json',
+                 'Accept': 'application/json'
+             }
+         }).then (res => res.json ())
+             .then (data => {
+                 response.push ({
+                     name: data["doorName"]
+                 });
+                 console.log (data)
+             }).then (data => this.setState (prevState => {
+                 return {
+                     availabelData: response[0]
+                 }
+             }
+         ))
     }
 
     render() {
         return (
             <div>
 
+                <img src={Door} className="img" alt="logo" onClick={this.door1}/>
 
-                <img src={Door} className="img" alt="logo" onClick={this.toggleButtonState}/>
+                <img src={Door} className="img" alt="logo" onClick={this.door2}/>
 
-                <img src={Door} className="img" alt="logo" onClick={this.toggleButtonState1}/>
-
-                <img src={Door} className="img" alt="logo" onClick={this.toggleButtonState2}/>
+                <img src={Door} className="img" alt="logo" onClick={this.door3}/>
 
                 <div>
                     <h1>{this.state.availabelData.name}</h1>
-                    {/*              <h1>{this.state.response2.name}</h1>
-                    <h1>{this.state.response3.name}</h1>*/}
                 </div>
             </div>
 
         )
     }
-
-
-    /*        const [result, setResult] = useState(0);
-            useEffect(() => {
-                fetch("/api/client", {
-                    headers : {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
-                }).then(res => res.json()).then(data => {
-                    // setResult(data)
-                    console.log("data")
-                    console.log(data)
-                    console.log(data)
-                })
-            }, []);
-
-
-    /!*        return (
-                <div >
-                  <h1>{this.toggleButtonState}</h1>
-
-                </div>
-
-            )*!/
-        return result*/
 }
 
 export default Test

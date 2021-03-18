@@ -5,16 +5,15 @@ import lombok.Data;
 @Data
 public class ResponseJson {
 
-    private String CompleteName;
+    private String doorName;
 
-    public void setCompleteName(String completeName) {
-        CompleteName = completeName;
+    public void setDoorName(String doorName) {
+        this.doorName = doorName;
     }
 
-    public String getCompleteName() {
-        return CompleteName;
+    public String getDoorName() {
+        return doorName;
     }
-
 }
 
 
