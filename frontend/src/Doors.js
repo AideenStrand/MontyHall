@@ -6,8 +6,10 @@ class Doors extends React.Component {
     constructor() {
         super ();
         this.state = {
-            availabelData: "",
-          random: 0
+            doorOne: "",
+            doorTwo: "",
+            doorThree: "",
+            ask: ""
         }
     }
 
@@ -27,6 +29,8 @@ class Doors extends React.Component {
     fetchMethod(number) {
 
         var response = []
+        var doorsName = []
+
         fetch ("/api/client/" + number, {
             headers: {
                 'Content-Type': 'application/json',
@@ -35,13 +39,20 @@ class Doors extends React.Component {
         }).then (res => res.json ())
             .then (data => {
                 response.push ({
-                    name: data["doorName"],
+                    doorsName: data["doorsName"],
                     ask: data["resultSentence"]
                 });
                 console.log (data)
-            }).then (data => this.setState (prevState => {
+                console.log ("RES")
+                console.log (response[0].doorsName)
+                console.log (response[0].ask)
+            }).then (respo => this.setState (prevState => {
                 return {
-                    availabelData: response[0]
+                    doorOne: response[0].doorsName["door1"],
+                    doorTwo: response[0].doorsName["door2"],
+                    doorThree: response[0].doorsName["door3"],
+                    ask: response[0].ask,
+
                 }
             }
         ))
@@ -49,20 +60,26 @@ class Doors extends React.Component {
 
 
     render() {
-        return (
-            <div>
-                <h1 className={"h"}>Choose one of doors below for winning A Bil</h1>
-                <img src={Door} className="img" alt="logo" onClick={this.door1}/>
 
-                <img src={Door} className="img" alt="logo" onClick={this.door2}/>
+        const one = this.state.doorOne;
+        console.log("one")
+        console.log(one)
+        if(one != null) {
 
-                <img src={Door} className="img" alt="logo" onClick={this.door3}/>
+            return (
+                <div>
+                    <h1 className={"h"}>Choose one of doors below for winning A Bil</h1>
 
-                <h1 className={"h"}>{this.state.availabelData.name}</h1>
-                <h1 className={"h"}>{this.state.availabelData.ask}</h1>
-            </div>
+                    <button ><img src={Door} className="img" alt="logo" onClick={this.door1}/>{this.state.doorOne}</button>
+                    <button> <img src={Door} className="img" alt="logo" onClick={this.door2}/>{this.state.doorTwo}</button>
+                    <button>  <img src={Door} className="img" alt="logo" onClick={this.door3}/>{this.state.doorThree}</button>
 
-        )
+                    <h1 className={"h"}>{this.state.ask}</h1>
+                </div>
+
+
+            )
+        }
     }
 }
 
